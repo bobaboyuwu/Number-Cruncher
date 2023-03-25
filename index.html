@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Numeber Cruncher 3000</title>
+    <title>Number Cruncher 3000</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
 </head>
@@ -13,26 +13,26 @@
     <p>For all of your number-computing needs!</p>
     <div id="display">123456789</div>
       <div id="number">
-        <button id="one">1</button>
-        <button id="two">2</button>
-        <button id="three">3</button>
-        <button id="four">4</button>
-        <button id="five">5</button>
-        <button id="six">6</button>
-        <button id="seven">7</button>
-        <button id="eight">8</button>
-        <button id="nine">9</button>
-        <button id="zero">0</button>
+        <button id="one" onClick="assign()">1</button>
+        <button id="two" onClick="assign()">2</button>
+        <button id="three" onClick="assign()">3</button>
+        <button id="four" onClick="assign()">4</button>
+        <button id="five" onClick="assign()">5</button>
+        <button id="six" onClick="assign()">6</button>
+        <button id="seven" onClick="assign()">7</button>
+        <button id="eight" onClick="assign()">8</button>
+        <button id="nine" onClick="assign()">9</button>
+        <button id="zero" onClick="assign()">0</button>
       </div>
     <div id="expression">
       <button id="add">+</button>
       <button id="subtract">-</button>
       <button id="multiply">X</button>
       <button id="divide">/</button>
-      <button id="equals">=</button>
+      <button id="equals" onClick="Operate()">=</button>
     </div>
     <div>
-      <button id="clear">clear</button>
+      <button id="clear" onClick="clearNumbers()">clear</button>
     </div>
 </body>
 </html>

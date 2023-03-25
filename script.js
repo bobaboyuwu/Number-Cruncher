@@ -1,81 +1,131 @@
+// note to self: finish firstNumber and secondNumber code next!
+// note to self saturday 3/25/2023:
+//   congrats on finishing the firstNumber and secondNumber code!
+//   you also finished the clear button, and operations code!
+//   next step is to make it so that the firstNumber, secondNumber, operation, and result fill up the box
+// also need to work on the css for the visual aesthetics
+
 let firstNumber;
 let secondNumber;
 
 var number = document.querySelector('#number');
-var one = document.querySelector('#one');
-var two = document.querySelector('#two');
-var three = document.querySelector('#three');
-var four = document.querySelector('#four');
-var five = document.querySelector('#five');
-var six = document.querySelector('#six');
-var seven = document.querySelector('#seven');
-var eight = document.querySelector('#eight');
-var nine = document.querySelector('#nine');
-var zero = document.querySelector('#zero');
 
-number.addEventListener('click', () => {
-    if (typeof firstNumber == 'undefined')  {
-        firstNumber
-    }
-    else if (typeof firstNumber !== undefined && typeof secondNumber == 'undefined')  {
-        secondNumber
-    }
-    console.log(firstNumber);
-    console.log(secondNumber);
-    }
-);
-one.addEventListener('click', () => {
-    if (typeof firstNumber == 'undefined')  {
-        firstNumber = 1;
-    }
-    else if (typeof firstNumber !== undefined && typeof secondNumber == 'undefined')  {
+const one = document.querySelector('#one');
+const two = document.querySelector('#two');
+const three = document.querySelector('#three');
+const four = document.querySelector('#four');
+const five = document.querySelector('#five');
+const six = document.querySelector('#six');
+const seven = document.querySelector('#seven');
+const eight = document.querySelector('#eight');
+const nine = document.querySelector('#nine');
+const zero = document.querySelector('#zero');
+
+const clear = document.querySelector('#clear');
+function assign() {
+    if (firstNumber == undefined)  {
+        if (event.srcElement.id == "one") {
+            firstNumber = 1;
+    }   else if (event.srcElement.id == "two") {
+            firstNumber = 2;
+     }   else if (event.srcElement.id == "three") {
+             firstNumber = 3;
+     }
+         else if (event.srcElement.id == "four") {
+             firstNumber = 4;
+     }
+         else if (event.srcElement.id == "five") {
+             firstNumber = 5;
+     }
+         else if (event.srcElement.id == "six") {
+             firstNumber = 6;
+     }
+         else if (event.srcElement.id == "seven") {
+             firstNumber = 7;
+     }
+         else if (event.srcElement.id == "eight") {
+             firstNumber = 8;
+     }
+         else if (event.srcElement.id == "nine") {
+             firstNumber = 9;
+     }
+         else if (event.srcElement.id == "zero") {
+             firstNumber = 0;
+         }
+} else if (secondNumber == undefined)  {
+    if (event.srcElement.id == "one") {
         secondNumber = 1;
-    }
-    console.log(firstNumber);
-    console.log(secondNumber);
-    }
-);
-two.addEventListener('click', () => {
-    if (typeof firstNumber == 'undefined')  {
-        firstNumber = 2;
-    }
-    else if (typeof firstNumber !== undefined && typeof secondNumber == 'undefined')  {
+}   else if (event.srcElement.id == "two") {
         secondNumber = 2;
-    }
+ }   else if (event.srcElement.id == "three") {
+        secondNumber = 3;
+ }
+     else if (event.srcElement.id == "four") {
+        secondNumber = 4;
+ }
+     else if (event.srcElement.id == "five") {
+        secondNumber = 5;
+ }
+     else if (event.srcElement.id == "six") {
+        secondNumber = 6;
+ }
+     else if (event.srcElement.id == "seven") {
+        secondNumber= 7;
+ }
+     else if (event.srcElement.id == "eight") {
+        secondNumber = 8;
+ }
+     else if (event.srcElement.id == "nine") {
+        secondNumber = 9;
+ }
+     else if (event.srcElement.id == "zero") {
+        secondNumber = 0;
+     }
+}   
     console.log(firstNumber);
     console.log(secondNumber);
-    }
-);
+};
 
-var add = document.querySelector('#add');
+function clearNumbers() {
+    firstNumber = undefined;
+    secondNumber = undefined;
+    console.log(firstNumber);
+    console.log(secondNumber);
+}
+
+const add = document.querySelector('#add');
 add.addEventListener('click', () => {
-    Operate (operation = "addition");
+    operation = "addition";
 }
 );
-var subtract = document.querySelector('#subtract');
+const subtract = document.querySelector('#subtract');
 subtract.addEventListener('click', () => {
-    Operate (operation = "subtraction");
+    operation = "subtraction";
 });
-var multiply = document.querySelector('#multiply');
+const multiply = document.querySelector('#multiply');
 multiply.addEventListener('click', () => {
-    Operate (operation = "multiplication");
+    operation = "multiplication";
 });
-var divide = document.querySelector('#divide');
+const divide = document.querySelector('#divide');
 divide.addEventListener('click', () => {
-    Operate (operation = "division");
+    operation = "division";
 });
-function Operate(operation, firstNumber, secondNumber) {
+function Operate() {
     if (operation == "addition") {
-        console.log(firstNumber + secondNumber);
+        result = firstNumber + secondNumber;
+        console.log(result);
     }
     else if (operation == "subtraction") {
-        console.log(firstNumber - secondNumber);
+        result = firstNumber - secondNumber;
+        console.log(result);
     }
     else if (operation == "multiplication") {
-        console.log(firstNumber * secondNumber);
+        result = firstNumber * secondNumber;
+        console.log(result);
     }
     else if (operation == "division") 
-        console.log(firstNumber / secondNumber);
+        result = firstNumber / secondNumber;
+        console.log(result);
 }
 
 
@@ -92,4 +142,4 @@ function Operate(operation, firstNumber, secondNumber) {
 // 3d. make "clear" button functional
 // 4a. create functions that populate display when 
 // number buttons are clicked
-// 4b. store the display value in a variable for use
+// 4b. store the display value in a constiable for use
