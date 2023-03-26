@@ -4,10 +4,13 @@
 //   you also finished the clear button, and operations code!
 //   next step is to make it so that the firstNumber, secondNumber, operation, and result fill up the box
 // also need to work on the css for the visual aesthetics
-
+// i finished creating the display, need to work on some things with it
+// the display should show numbers when they are clicked on
 let firstNumber;
 let secondNumber;
-
+let result;
+let symbol;
+let operation;
 var number = document.querySelector('#number');
 
 const one = document.querySelector('#one');
@@ -21,7 +24,9 @@ const eight = document.querySelector('#eight');
 const nine = document.querySelector('#nine');
 const zero = document.querySelector('#zero');
 
-const clear = document.querySelector('#clear');
+const display = document.querySelector('#display');
+
+
 function assign() {
     if (firstNumber == undefined)  {
         if (event.srcElement.id == "one") {
@@ -81,14 +86,19 @@ function assign() {
      else if (event.srcElement.id == "zero") {
         secondNumber = 0;
      }
-}   
-    console.log(firstNumber);
-    console.log(secondNumber);
-};
+}   if (symbol != undefined) {
+document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
+}   else if (symbol != undefined) {
+document.getElementById("display").textContent = `${firstNumber} ${secondNumber}`;
+}};
 
 function clearNumbers() {
     firstNumber = undefined;
     secondNumber = undefined;
+    operation = undefined;
+    symbol = undefined;
+    result = undefined;
+    document.getElementById("display").textContent = "Cleared";
     console.log(firstNumber);
     console.log(secondNumber);
 }
@@ -96,21 +106,29 @@ function clearNumbers() {
 const add = document.querySelector('#add');
 add.addEventListener('click', () => {
     operation = "addition";
+    symbol = "+";
+    document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
 }
 );
 const subtract = document.querySelector('#subtract');
 subtract.addEventListener('click', () => {
     operation = "subtraction";
+    symbol = "-";
+    document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
 });
 const multiply = document.querySelector('#multiply');
 multiply.addEventListener('click', () => {
     operation = "multiplication";
+    symbol = "X";
+    document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
 });
 const divide = document.querySelector('#divide');
 divide.addEventListener('click', () => {
     operation = "division";
+    symbol = "/";
+    document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
 });
-function Operate() {
+function Operate() {{
     if (operation == "addition") {
         result = firstNumber + secondNumber;
         console.log(result);
@@ -123,10 +141,13 @@ function Operate() {
         result = firstNumber * secondNumber;
         console.log(result);
     }
-    else if (operation == "division") 
+    else if (operation == "division") {
         result = firstNumber / secondNumber;
         console.log(result);
 }
+document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber} = ${result}`;
+}};
+
 
 
 // 1a. DONE create add function
