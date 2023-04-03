@@ -6,6 +6,10 @@
 // also need to work on the css for the visual aesthetics
 // i finished creating the display, need to work on some things with it
 // the display should show numbers when they are clicked on
+// note to self 4/3/2023:
+//  i made the display fill up more smoothly with numbers and operators
+// also made the firstNumber equal the result after an operate function
+// need to make calculator work with more than 2 numbers
 let firstNumber;
 let secondNumber;
 let result;
@@ -57,6 +61,7 @@ function assign() {
          else if (event.srcElement.id == "zero") {
              firstNumber = 0;
          }
+         document.getElementById("display").textContent = `${firstNumber}`;
 } else if (secondNumber == undefined)  {
     if (event.srcElement.id == "one") {
         secondNumber = 1;
@@ -86,11 +91,14 @@ function assign() {
      else if (event.srcElement.id == "zero") {
         secondNumber = 0;
      }
-}   if (symbol != undefined) {
+}   if (symbol !== undefined && secondNumber !== undefined) {
 document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
-}   else if (symbol != undefined) {
+}   else if (secondNumber !== undefined) {
 document.getElementById("display").textContent = `${firstNumber} ${secondNumber}`;
-}};
+}   else if (secondNumber == undefined) {
+    document.getElementById("display").textContent = `${firstNumber}`;
+}
+    };
 
 function clearNumbers() {
     firstNumber = undefined;
@@ -107,42 +115,67 @@ const add = document.querySelector('#add');
 add.addEventListener('click', () => {
     operation = "addition";
     symbol = "+";
+    if (firstNumber == undefined && secondNumber == undefined) {
+        document.getElementById("display").textContent = `${symbol}`;
+    }
+    else if (secondNumber == undefined) {
+    document.getElementById("display").textContent = `${firstNumber} ${symbol}`;
+}   else if (secondNumber !== undefined) {
     document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
-}
+}}
 );
 const subtract = document.querySelector('#subtract');
 subtract.addEventListener('click', () => {
     operation = "subtraction";
     symbol = "-";
-    document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
-});
+    if (firstNumber == undefined && secondNumber == undefined) {
+        document.getElementById("display").textContent = `${symbol}`;
+    }   else if (secondNumber == undefined) {
+        document.getElementById("display").textContent = `${firstNumber} ${symbol}`;
+    }    else {
+            document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
+    }});
 const multiply = document.querySelector('#multiply');
 multiply.addEventListener('click', () => {
     operation = "multiplication";
     symbol = "X";
-    document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
-});
+    if (firstNumber == undefined && secondNumber == undefined) {
+        document.getElementById("display").textContent = `${symbol}`;
+    }   else if (secondNumber == undefined) {
+        document.getElementById("display").textContent = `${firstNumber} ${symbol}`;
+    }    else {
+            document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
+    }});
 const divide = document.querySelector('#divide');
 divide.addEventListener('click', () => {
     operation = "division";
     symbol = "/";
-    document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
-});
+    if (firstNumber == undefined && secondNumber == undefined) {
+        document.getElementById("display").textContent = `${symbol}`;
+    }   else if (secondNumber == undefined) {
+        document.getElementById("display").textContent = `${firstNumber} ${symbol}`;
+    }    else {
+            document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber}`;
+    }});
 function Operate() {{
     if (operation == "addition") {
         result = firstNumber + secondNumber;
-        console.log(result);
+        firstNumber = result;
+        console.log(result);;
     }
     else if (operation == "subtraction") {
         result = firstNumber - secondNumber;
+        firstNumber = result;
         console.log(result);
     }
     else if (operation == "multiplication") {
         result = firstNumber * secondNumber;
+        firstNumber = result;
         console.log(result);
     }
     else if (operation == "division") {
         result = firstNumber / secondNumber;
+        firstNumber = result;
         console.log(result);
 }
 document.getElementById("display").textContent = `${firstNumber} ${symbol} ${secondNumber} = ${result}`;
